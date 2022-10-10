@@ -1,0 +1,24 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="register">Register</a>
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div>
+    <form name="forma">
+        <div class="login">
+            <input type="text" placeholder="Username" id="username" name="username" [(ngModel)] = 'username'>  
+            <input type="password" placeholder="Password" id="password" name="password" [(ngModel)] = 'password'>  
+            <input type="submit" value="Login" (click)='login()'>
+        </div>
+    </form>   
+</div>

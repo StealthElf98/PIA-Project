@@ -1,0 +1,112 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button [matMenuTriggerFor]="organizator">Organizator</a>
+    <mat-menu #organizator="matMenu">
+        <a mat-menu-item href="user">Users</a>
+        <a mat-menu-item [matMenuTriggerFor]="insert">Insert</a>
+        <a mat-menu-item href="records">Records</a>
+    </mat-menu>
+    <mat-menu #insert="matMenu">
+        <a mat-menu-item href="sport">Insert Sport</a>
+        <a mat-menu-item href="tournaments">Insert Tournaments</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<div class="float-container">
+    <div class="table-wrapper" class="float-child">
+        <div class="container">
+            <h1>Men Records</h1>
+        </div>
+        <table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="discipline">
+                <th mat-header-cell *matHeaderCellDef> Discipline </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.discipline}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="result">
+                <th mat-header-cell *matHeaderCellDef> Result </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.result}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="athlete">
+                <th mat-header-cell *matHeaderCellDef> Athlete </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.athlete}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th mat-header-cell *matHeaderCellDef> Country </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.country}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="place">
+                <th mat-header-cell *matHeaderCellDef> Place </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.place}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.year}}
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  
+            </table>
+    </div>
+    <div class="table-wrapper" class="float-child">
+        <div class="container">
+            <h1>Women Records</h1>
+        </div>
+        <table mat-table [dataSource] = "dataSource2" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="discipline">
+                <th mat-header-cell *matHeaderCellDef> Discipline </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.discipline}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="result">
+                <th mat-header-cell *matHeaderCellDef> Result </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.result}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="athlete">
+                <th mat-header-cell *matHeaderCellDef> Athlete </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.athlete}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th mat-header-cell *matHeaderCellDef> Country </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.country}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="place">
+                <th mat-header-cell *matHeaderCellDef> Place </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.place}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let record">
+                    {{record.year}}
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>  
+          </table>
+    </div>
+</div>

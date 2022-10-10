@@ -1,0 +1,10 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<output>{{user.username}}</output>

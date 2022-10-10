@@ -1,0 +1,392 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button href="delegat">Date and Time</a>
+    <a mat-button [matMenuTriggerFor]="tournament">Tournaments</a>
+    <mat-menu #tournament="matMenu">
+        <a mat-menu-item href="tournament1">Tournament 1</a>
+        <a mat-menu-item href="tournament2">Tournament 2</a>
+        <a mat-menu-item href="tournament3">Tournament 3</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<div>
+    <form class="forma" *ngIf='triKruga || sestKrugova || jedanKrug && !tenis'>
+        <div class="glNaslov">Tournament 1</div>
+        <table [ngClass]="{'tabela3' : triKruga, 'tabela1' : jedanKrug, 'tabela6': sestKrugova}">
+            <caption class="caption">{{tournament1.discipline}}</caption>
+            <th>Athlete</th>
+            <th>Result 1</th>
+            <th *ngIf='triKruga || sestKrugova'>Result 2</th>
+            <th *ngIf='triKruga || sestKrugova'>Result 3</th>
+            <th *ngIf='sestKrugova'>Result 4</th>
+            <th *ngIf='sestKrugova'>Result 5</th>
+            <th *ngIf='sestKrugova'>Result 6</th>
+            <tr *ngIf='0<br'>
+                <td class="kolona1">
+                    <output>{{athletes[0].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[0]' *ngIf='!hass[0]'>
+                    <output name="rez" class="result" *ngIf='hass[0]'>{{result1[0].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[0]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[0].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[0]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[0].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[0]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[0].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[0]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[0].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[0]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[0].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='1<br'>
+                <td class="kolona1">
+                    <output>{{athletes[1].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[1]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[1].result1}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[1]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[1].result2}}</output>  
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[1]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[1].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[1]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[1].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[1]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[1].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[1]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[1].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='2<br'>
+                <td class="kolona1">
+                    <output>{{athletes[2].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[2]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[2].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[2]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[2].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[2]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[2].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[2]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[2].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[2]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[2].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[2]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[2].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='3<br'>
+                <td class="kolona1">
+                    <output>{{athletes[3].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[3]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[3].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[3]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[3].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[3]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[3].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[3]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[3].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[3]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[3].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[3]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[3].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='4<br'>
+                <td class="kolona1">
+                    <output>{{athletes[4].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[4]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[4].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[4]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[4].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[4]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[4].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[4]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[4].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[4]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[4].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[4]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[4].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='5<br'>
+                <td class="kolona1">
+                    <output>{{athletes[5].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[5]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[5].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[5]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[5].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[5]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[5].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[5]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[5].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[5]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[5].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[5]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[5].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='6<br'>
+                <td class="kolona1">
+                    <output>{{athletes[6].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[6]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[6].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[6]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[6].result2}}</output>  
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[6]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[6].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[6]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[6].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[6]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[6].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[6]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[6].result6}}</output> 
+                </td>
+            </tr>
+            <tr *ngIf='7<br'>
+                <td class="kolona1">
+                    <output>{{athletes[7].name}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result1" [(ngModel)]='results1[7]' *ngIf='!hass[0]'>
+                    <output name="rez" *ngIf='hass[0]'>{{result1[7].result1}}</output>
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results2[7]' *ngIf='(triKruga || sestKrugova) && !hass[1]'>
+                    <output name="rez" class="result" *ngIf='hass[1]'>{{result1[7].result2}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results3[7]' *ngIf='(triKruga || sestKrugova) && !hass[2]'>
+                    <output name="rez" class="result" *ngIf='hass[2]'>{{result1[7].result3}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results4[7]' *ngIf='sestKrugova && !hass[3]'>
+                    <output name="rez" class="result" *ngIf='hass[3]'>{{result1[7].result4}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results5[0]' *ngIf='sestKrugova && !hass[4]'>
+                    <output name="rez" class="result" *ngIf='hass[4]'>{{result1[7].result5}}</output> 
+                </td>
+                <td class="kolona2">
+                    <input type="text" class="result" name="result2" [(ngModel)]='results6[0]' *ngIf='sestKrugova && !hass[5]'>
+                    <output name="rez" class="result" *ngIf='hass[5]'>{{result1[7].result6}}</output> 
+                </td>
+            </tr>
+            
+        </table>
+        <span class="buttons">
+            <input type="submit" name="next" value="Next" (click)='next()' [disabled] = 'button1'>
+            <input type="submit" name="finish" value="Finish" (click)='finish()' [disabled] = 'button2 || over'>
+        </span>
+    </form>
+</div>
+<form class="formaT" *ngIf='tenis'>
+<div class="glNaslov">Tournament 1</div>
+<div *ngIf='tenis' class="glavniDiv">
+        <div class="div1">
+            <table *ngIf='start'>
+                <tr *ngFor='let a of athletesTT'>
+                    <td>
+                        {{a.name}} ({{a.rank}})
+                    </td>
+                </tr>
+            </table>
+            <table *ngIf='osmina'>
+                <caption class="naslov">4. Round</caption>
+                <tr *ngFor='let m of matchesO; let i=index'>
+                    <td>
+                        {{m.name1}} - {{m.name2}}
+                    </td>
+                    <td>
+                        <input type="text" class="rez" name="rez1" [(ngModel)]='rez1[i]' *ngIf='!hasT1'>
+                        <output *ngIf='hasT1'>{{m.result}}</output>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="div2">
+            <table *ngIf='cetvrtina'>
+                <caption class="naslov">Quarterfinals</caption>
+                <tr *ngFor='let m of matchesC; let i=index'>
+                    <td>
+                        {{m.name1}} - {{m.name2}}
+                    </td>
+                    <td> 
+                        <input type="text" class="rez" name="rez2" [(ngModel)]='rez2[i]' *ngIf='!hasT2'>
+                        <output *ngIf='hasT2'>{{m.result}}</output>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="div3">
+            <table *ngIf='polufinale'>
+                <caption class="naslov">Semifinals</caption>
+                <tr *ngFor='let m of matchesP; let i=index'>
+                    <td>
+                        {{m.name1}} - {{m.name2}}
+                    </td>
+                    <td> 
+                        <input type="text" class="rez" name="rez3" [(ngModel)]='rez3[i]' *ngIf='!hasT3'>
+                        <output *ngIf='hasT3'>{{m.result}}</output>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="div4">
+            <table *ngIf='finale'>
+                <caption class="naslov">Final</caption>
+                <tr *ngFor='let m of matchesF; let i=index'>
+                    <td>
+                        {{m.name1}} - {{m.name2}}
+                    </td>
+                    <td> 
+                        <input type="text" class="rez" name="rez4" [(ngModel)]='rez4[0]' *ngIf='!hasT4'>
+                        <output *ngIf='hasT4'>{{m.result}}</output>
+                    </td>
+                </tr>
+                <tr>
+                    <td  class="naslov" align="center" colspan="2">
+                        <output>Third place</output>
+                    </td>
+                </tr>
+                <tr *ngFor='let m of matchesTM'>
+                    <td>
+                        {{m.name1}} - {{m.name2}}
+                    </td>
+                    <td> 
+                        <input type="text" class="rez" name="rez4" [(ngModel)]='rez4[1]' *ngIf='!hasT4'>
+                        <output *ngIf='hasT4'>{{m.result}}</output>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <span class="buttons2" >
+        <input type="submit" name="Start" value="Start" (click)='random()' *ngIf='start'>
+        <input type="submit" name="Next" value="Next" (click)='nextT()' *ngIf='!over'>
+        <input type="submit" name="Next" value="Finish" (click)='finishT()' *ngIf='over'>
+    </span>
+</form>
+<form *ngIf='ekipni'>
+<div class="glNaslov">Tournament 1</div>
+<div *ngIf='ekipni' class="glavniDiv">
+    <table *ngIf='start'>
+        <tr *ngFor='let c of countries'>
+            <td>
+                {{c}}
+            </td>
+        </tr>
+    </table>
+    <table *ngIf='!start'>
+        <tr class="naslov">GROUP A</tr>
+        <tr *ngFor='let g of groups.groupA'>
+            <td>
+                {{g.country}}
+            </td>
+            <td>
+                {{g.points}}
+            </td>
+        </tr>
+        <tr class="naslov">GROUP B</tr>
+        <tr *ngFor='let g of groups.groupB'>
+            <td>
+                {{g.country}}
+            </td>
+            <td>
+                {{g.points}}
+            </td>
+        </tr>
+    </table>
+</div>
+    <span class="buttons2" >
+        <input type="submit" name="Start" value="Start" (click)='randomE()' *ngIf='start'>
+        <input type="submit" name="Next" value="Next" (click)='nextE()' *ngIf='!over'>
+        <input type="submit" name="Next" value="Finish" (click)='finishE()' *ngIf='over'>
+    </span>
+</form>

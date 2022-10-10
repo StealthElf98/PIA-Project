@@ -1,0 +1,141 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button [matMenuTriggerFor]="organizator">Organizator</a>
+    <mat-menu #organizator="matMenu">
+        <a mat-menu-item href="user">Users</a>
+        <a mat-menu-item [matMenuTriggerFor]="insert">Insert</a>
+        <a mat-menu-item href="records">Records</a>
+    </mat-menu>
+    <mat-menu #insert="matMenu">
+        <a mat-menu-item href="sport">Insert Sport</a>
+        <a mat-menu-item href="tournaments">Insert Tournaments</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<div class="float-container">
+    <form>
+        <div class="float-child">
+            <table align="center">
+                <tr>
+                    <td>Sport:</td>
+                    <td>
+                        <select class="select" name="izbor2" [(ngModel)]='sport' (change)="firstDropDownChanged($event.target.value)">
+                            <option *ngFor="let sport of sports">
+                                {{sport}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Discipline:</td>
+                    <td>
+                        <select  class="select" name="select3" [(ngModel)]='discipline'>
+                            <option *ngFor="let discipline of disciplines">
+                                {{discipline}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Format:</td>
+                    <td>
+                        <select  class="select" name="select3" [(ngModel)]='format'>
+                            <option *ngFor="let formatt of formati">
+                                {{formatt}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sex:</td>
+                    <td>
+                        <input class="radio" type="radio" id="choice1" name="radio" value="M" [(ngModel)]='sex'>
+                        <label for="choice1">M</label>
+                        <input class="radio" type="radio" id="choice2" name="radio" value="Z" [(ngModel)]='sex'>
+                        <label for="choice2">Z</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <output>Start:</output>
+                    </td>
+                    <td>
+                        <input class="date" type="date" name="start" [(ngModel)]='start'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <output>End:</output>
+                    </td>
+                    <td>
+                        <input class="date" type="date" name="end" [(ngModel)]='end'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>
+                        <select  class="selectL" name="select4" multiple [(ngModel)]='locations'>
+                            <option *ngFor="let locationn of locationss">
+                                {{locationn}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Delegat:</td>
+                    <td>
+                        <select class="select" name="delegat" [(ngModel)]='delegat'>
+                            <option  *ngFor="let delegat of delegati" selected>
+                                {{delegat.username}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Add" (click)='add()'>
+                        <input type="submit" value="Choose" (click)='chooseAthletes()'>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="float-child2">
+            <table class="tabela2" *ngIf='selected && indi'>
+                <tr *ngFor='let a of athletes; let i=index'>
+                    <td>
+                        {{i+1}}. {{a.name}}
+                    </td>
+                    <td>
+                        <input type="checkbox" name="checkbox" [(ngModel)]='checkBoxes[i]'>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabela2" *ngIf='selected && tenis'>
+                <tr *ngFor='let a of athletest; let i=index'>
+                    <td>
+                        {{i+1}}. {{a.name}}
+                    </td>
+                    <td>
+                        <input type="checkbox" name="checkbox" [(ngModel)]='checkBoxes[i]'>
+                    </td>
+                </tr>
+            </table>
+            <table class="tabela2" *ngIf='selected && ekip'>
+                <tr *ngFor='let t of teams; let i=index'>
+                    <td>
+                        {{i+1}}. {{t.country}}
+                    </td>
+                    <td>
+                        <input type="checkbox" name="checkbox" [(ngModel)]='checkBoxes[i]'>
+                    </td>
+                </tr>
+            </table>
+            <span class="notSelected" *ngIf='!selected'>No Athletes</span>
+        </div>
+    </form>
+</div>

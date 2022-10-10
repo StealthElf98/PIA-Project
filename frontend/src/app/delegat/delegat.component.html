@@ -1,0 +1,168 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button href="delegat">Date and Time</a>
+    <a mat-button [matMenuTriggerFor]="tournament">Tournaments</a>
+    <mat-menu #tournament="matMenu">
+        <a mat-menu-item href="tournament1">Tournament 1</a>
+        <a mat-menu-item href="tournament2">Tournament 2</a>
+        <a mat-menu-item href="tournament3">Tournament 3</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<div>
+   <div class="box" *ngIf="t1==true">
+       <form>
+            <table>
+            <tr>
+                <td colspan="2" class="naslov" align="Center">
+                    <output>Sport and Discipline</output>
+                </td>
+            </tr>
+            <tr>
+                 <td colspan="2" align="Center">
+                     <output>{{tournament1.sport}}, {{tournament1.discipline}}</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" class="naslov" align="Center">
+                     <output>Location</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="Center">
+                     <select name="izbor1" id="izbor1" [(ngModel)]='location1' *ngIf='!submited1'>
+                         <option *ngFor='let locationn of locations1' selected>
+                            {{locationn}}
+                         </option>
+                     </select>
+                     <output *ngIf='submited1'>{{location1}}</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" class="naslov" align="Center">
+                     <output>Date and Time</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td align="Center">
+                     <output>{{tournament1.start}}</output>
+                 </td>
+                 <td align="Center">
+                     <input type="time" name="time" [(ngModel)]='time1' *ngIf='!submited1'>
+                     <output *ngIf='submited1'>{{time1}}</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="Center">
+                     <input type="submit" value="Submit" (click)='submit1()' *ngIf='!submited1'>
+                 </td>
+             </tr>
+        </table>
+       </form>  
+   </div>
+   <div class="box" *ngIf="t2==true">
+       <form>
+        <table>
+            <tr>
+                <td colspan="2" class="naslov" align="Center">
+                    <output>Sport and Discipline</output>
+                </td>
+            </tr>
+            <tr>
+                 <td colspan="2" align="Center">
+                     <output>{{tournament2.sport}}, {{tournament2.discipline}}</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" class="naslov" align="Center">
+                     <output>Location</output>
+                 </td>
+             </tr>
+             <tr>
+                <td colspan="2" align="Center">
+                    <select name="izbor2" id="izbor2" [(ngModel)]='location2' *ngIf='!submited2'>
+                        <option *ngFor='let locationn of locations2'>
+                           {{locationn}}
+                        </option>
+                    </select>
+                    <output *ngIf='submited2'>{{location2}}</output>
+                </td>
+             </tr>
+             <tr>
+                 <td colspan="2" class="naslov" align="Center">
+                     <output>Date and Time</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td align="Center">
+                     <output>{{tournament2.start}}</output>
+                 </td>
+                 <td align="Center">
+                     <input type="time" name="time" [(ngModel)]='time2' *ngIf='!submited2'>
+                     <output *ngIf='submited2'>{{time2}}</output>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="Center">
+                    <input type="submit" value="Submit" (click)='submit2()' *ngIf='!submited2'>
+                 </td>
+             </tr>
+        </table>
+       </form>
+   </div>
+   <div class="box" *ngIf="t3==true">
+        <form>
+            <table>
+                <tr>
+                    <td colspan="2" class="naslov" align="Center">
+                        <output>Sport and Discipline</output>
+                    </td>
+                </tr>
+                <tr>
+                     <td colspan="2" align="Center">
+                         <output>{{tournament3.sport}}, {{tournament3.discipline}}</output>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td colspan="2" class="naslov" align="Center">
+                         <output>Location</output>
+                     </td>
+                 </tr>
+                 <tr>
+                    <td colspan="2" align="Center">
+                        <select name="izbor2" id="izbor2" [(ngModel)]='location3' *ngIf='!submited3'>
+                            <option *ngFor='let locationn of locations3'>
+                               {{locationn}}
+                            </option>
+                        </select>
+                        <output *ngIf='submited3'>{{location3}}</output>
+                    </td>
+                 </tr>
+                 <tr>
+                     <td colspan="2" class="naslov" align="Center">
+                         <output>Date and Time</output>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td align="Center">
+                         <output>{{tournament3.start}}</output>
+                     </td>
+                     <td align="Center">
+                        <input type="time" name="time" [(ngModel)]='time3' *ngIf='!submited3'>
+                         <output *ngIf='submited3'>{{time3}}</output>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td colspan="2" align="Center">
+                        <input type="submit" value="Submit" (click)='submit3()' *ngIf='!submited3'>
+                     </td>
+                 </tr>
+            </table>
+        </form>
+   </div>
+</div>

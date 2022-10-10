@@ -1,0 +1,29 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="register" *ngIf='!logged'>Register</a>
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" href="login" *ngIf='!logged'>Login</a>
+</div>
+<br/>
+<div>
+    <form name="forma">
+        <div class="login">
+            <input type="text" placeholder="Username" id="username" name="username" [(ngModel)] = 'username'>  
+            <input type="password" placeholder="Password" id="password" name="password" [(ngModel)] = 'password'>
+            <input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" [(ngModel)] = 'cpassword'>
+            <input type="text" placeholder="Firstname" id="firstname" name="firstname" [(ngModel)] = 'firstname'>
+            <input type="text" placeholder="Lastname" id="lastname" name="lastname" [(ngModel)] = 'lastname'>
+            <input type="text" placeholder="Country" id="country" name="country" [(ngModel)] = 'country'>
+            <input type="text" placeholder="Email" id="email" name="email" [(ngModel)] = 'email'>
+            <select name="izbor" [(ngModel)] = 'type'>
+                <option value="1">Delegat Takmicenja</option>
+                <option value="2">Vodja Delegacije</option>
+            </select>
+            <input type="submit" value="Sign Up" (click)='register()'>
+        </div>
+    </form>   
+</div>

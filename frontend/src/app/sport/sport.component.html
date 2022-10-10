@@ -1,0 +1,34 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button [matMenuTriggerFor]="organizator">Organizator</a>
+    <mat-menu #organizator="matMenu">
+        <a mat-menu-item href="user">Users</a>
+        <a mat-menu-item [matMenuTriggerFor]="insert">Insert</a>
+        <a mat-menu-item href="records">Records</a>
+    </mat-menu>
+    <mat-menu #insert="matMenu">
+        <a mat-menu-item href="sport">Insert Sport</a>
+        <a mat-menu-item href="tournaments">Insert Tournaments</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+</div>
+<div>
+    <form name="forma">
+        <div class="login">
+            <input type="text" placeholder="Sport" id="sport" name="sport" [(ngModel)] = 'sport'>  
+            <input type="text" placeholder="Discipline" id="discipline" name="discipline" [(ngModel)] = 'discipline'>  
+            <select name="izbor" [(ngModel)] = 'type'>
+                <option value="I">Individual Sport</option>
+                <option value="E">Team Sport</option>
+            </select>
+            <input type="text" placeholder="Minimum Athletes" id="min" name="min" [(ngModel)] = 'min'>
+            <input type="text" placeholder="Maximum Athletes" id="max" name="max" [(ngModel)] = 'max'>  
+            <input type="submit" value="Insert" (click)='insert()'>
+        </div>
+    </form>   
+</div>

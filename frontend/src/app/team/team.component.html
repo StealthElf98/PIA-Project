@@ -1,0 +1,76 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button [matMenuTriggerFor]="vodja">Vodja</a>
+    <mat-menu #vodja="matMenu">
+        <a mat-menu-item href="view">View Athletes</a>
+        <a mat-menu-item [matMenuTriggerFor]="in">Insert</a>
+    </mat-menu>
+    <mat-menu #in="matMenu">
+        <a mat-menu-item href="vodja">Individual</a>
+        <a mat-menu-item href="team">Team</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+    <img  class="zastava" width="26px" height="22px" src="assets/{{user.country}}.png">
+</div>
+<div class="float-container">
+    <form>
+        <div class="float-child">
+            <div class="forma">
+            <output class="naslov">Insert Team</output>  
+            <select name="izbor1" [(ngModel)] = 'sport' (change)="firstDropDownChanged($event.target.value)">
+                <option *ngFor="let sport of sports">
+                    {{sport}}
+                </option>
+            </select>  
+            <select name="izbor2" [(ngModel)] = 'discipline'>
+                <option *ngFor="let discipline of disciplines">
+                    {{discipline}}
+                </option>
+            </select> 
+            <select name="izbor3" [(ngModel)] = 'sex'>
+                <option value="M">Male</option>
+                <option value="Z">Female</option>
+            </select>
+            <input type="text" class="rank" placeholder="Rank" name="rank" [(ngModel)]='rank' [disabled]='!tenis'>   
+            <input type="submit" value="Insert" (click)='insert()'>
+        </div>
+        </div>  
+        <div class="float-child2">
+            <table>
+                <caption class="naslov2">Insert Athletes</caption>
+                <tr>
+                    <input type="text" name="s1" [(ngModel)] = 'athletes[0]' *ngIf='tenis || atletika || kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s2" [(ngModel)] = 'athletes[1]' *ngIf='tenis || atletika || kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s3" [(ngModel)] = 'athletes[2]' *ngIf='atletika || kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s4" [(ngModel)] = 'athletes[3]' *ngIf='atletika || kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s5" [(ngModel)] = 'athletes[4]' *ngIf='kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s6" [(ngModel)] = 'athletes[5]' *ngIf='kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s7" [(ngModel)] = 'athletes[6]' *ngIf='kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s8" [(ngModel)] = 'athletes[7]' *ngIf='kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s9" [(ngModel)] = 'athletes[8]' *ngIf='kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s10" [(ngModel)] = 'athletes[9]' *ngIf='kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s11" [(ngModel)] = 'athletes[10]' *ngIf='kosarka || odbojka || vaterpolo'>
+                    <input type="text" name="s12" [(ngModel)] = 'athletes[11]' *ngIf='kosarka || odbojka || vaterpolo'>
+                </tr>
+                <tr>
+                    <input type="text" name="s13" [(ngModel)] = 'athletes[12]' *ngIf='vaterpolo'>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>

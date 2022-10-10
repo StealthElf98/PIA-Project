@@ -1,0 +1,199 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #324960;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color:  #4FC3A1;
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4FC3A1;
+  color: white;
+}
+
+*{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body{
+  font-family: Helvetica;
+  -webkit-font-smoothing: antialiased;
+  
+  
+}
+h2{
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  padding: 30px 0;
+}
+
+.zastava{
+  margin-top: 8px;
+  margin-left: 5px;
+}
+
+html { height: 100% }
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+body { background-image: radial-gradient( farthest-corner, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%), url('http://i.minus.com/io97fW9I0NqJq.png') }
+.login {
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 320px;
+  margin: 100px auto 0;
+  width: 298px;
+  justify-content: space-between;
+}
+input[type="password"], input[type="text"]{
+  background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0px 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 30px;
+  margin: 15px 0px 0 25px;
+  padding-left: 10px;
+  transition: box-shadow 0.3s;
+  width: 140px;
+}
+
+select {
+  background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
+  border: 1px solid #a1a3a3;
+  border-radius: 4px;
+  box-shadow: 0 1px #fff;
+  box-sizing: border-box;
+  color: #696969;
+  height: 30px;
+  margin: 10px 0 0 0px;
+  padding-left: 0px;
+  transition: box-shadow 0.3s;
+  width: 200px;
+}
+
+input[type="password"]:focus, input[type="text"]:focus {
+  box-shadow: 0 0 4px 1px #4FC3A1;
+  outline: 0;
+  width: 150px;
+}
+
+.toggle {
+  background: url(http://i.minus.com/ibitS19pe8PVX6.png) no-repeat;
+  display: block;
+  height: 16px;
+  margin-top: -20px;
+  width: 87px;
+  z-index: -1;
+}
+
+.forgot:hover { color: #3b3b3b }
+input[type="submit"] {
+  width:240px;
+  height:35px;
+  display:block;
+  font-family: "Helvetica", Helvetica;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
+  text-transform:uppercase;
+  text-align:center;
+  text-shadow:1px 1px 0px #4FC3A1;
+  padding-top:6px;
+  margin: 20px 0 0 -20px;
+  position:relative;
+  cursor:pointer;
+  border: none;  
+  background-color: #37a69b;
+  background-image: linear-gradient(top,#4FC3A1,#3111);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius:5px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+}
+
+
+input[type="submit"]:active {
+  top:3px;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
+}
+
+.logoutLblPos{
+  position:fixed;
+  right:0px;
+}
+
+.mat-menu-item{
+  font-size: 15px;
+}
+
+.naslov{
+  font-size: 20px;
+  margin-left: 20%;
+  font-weight: bold;
+  color: darkslategray;
+}
+
+.naslov2{
+  font-size: 20px;
+  margin-left: 10%;
+  font-weight: bold;
+  color: darkslategray;
+}
+
+.float-container {
+  border: 3px solid #fff;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.float-child {
+  width: 33%;
+  float: left;
+  padding: 20px;
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 280px;
+  margin: 90px auto 0;
+  width: 320px;
+}  
+
+.forma{
+  padding-left: 40px;
+}
+
+.float-child2 {
+  width: 33%;
+  float: right;
+  padding: 10px;
+  background: #eceeee;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 400px;
+  margin: 90px auto 0;
+  width: 380px;
+}  
+

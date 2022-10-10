@@ -1,0 +1,36 @@
+<div class="topnav">
+    <a mat-button href="home">Home</a>
+    <a mat-button href="search">Search</a>
+    <a mat-button [matMenuTriggerFor]="account">Account</a>
+    <mat-menu #account="matMenu">
+        <a mat-menu-item href="changepassword">Change Password</a>
+    </mat-menu>
+    <a mat-button [matMenuTriggerFor]="vodja">Vodja</a>
+    <mat-menu #vodja="matMenu">
+        <a mat-menu-item href="view">View Athletes</a>
+        <a mat-menu-item [matMenuTriggerFor]="insert">Insert</a>
+    </mat-menu>
+    <mat-menu #insert="matMenu">
+        <a mat-menu-item href="vodja">Individual</a>
+        <a mat-menu-item href="team">Team</a>
+    </mat-menu>
+    <a mat-button class="logoutLblPos" (click)='logout()'>Logout</a>
+    <img  class="zastava" width="26px" height="22px" src="assets/{{user.country}}.png">
+</div>
+{{sport}}
+<div>
+    <table *ngIf='!noDis'>
+        <tr *ngFor='let d of disciplines'>
+            <td>
+                <a routerLink='/view/{{sport}}/{{d}}'>{{d}}</a>
+            </td>
+        </tr>
+    </table>
+    <table *ngIf='noDis'>
+        <tr *ngFor='let a of athletes'>
+            <td>
+                {{a.name}}
+            </td>
+        </tr>
+    </table>
+</div>
